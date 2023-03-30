@@ -84,9 +84,40 @@ function playRound (compChoice, playerChoice) {
 
 }
 
-let playerChoice = "rock";
-let compChoice = getComputerChoice();
-console.log(compChoice);
+function gameResult (result) {
+    if (result === "Win"){
+        alert("You win!");
+    }
 
-console.log(playRound(compChoice, playerChoice));
+    else if (result === "Lose"){
+        alert("You lose!");
+    }
+
+    else if (result ==="Tie"){
+        alert("Tie!");
+    }
+}
+
+function game () {
+    let winCounter = 0;
+    let numberOfGames = 5;
+
+    for (let i = 0; i < numberOfGames; i++) {
+        let playerChoice = prompt("Rock, Paper, or Scissors?");
+        let compChoice = getComputerChoice();
+        let countgame = playRound(compChoice, playerChoice);
+
+        let result = gameResult(countgame);
+        console.log (result);
+
+        if (countgame === "Win"){
+            winCounter++;
+        }
+    }
+    console.log(winCounter);
+    return winCounter;
+}
+
+let runGame = game();
+
 
