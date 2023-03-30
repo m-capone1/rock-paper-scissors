@@ -23,25 +23,70 @@ If user chooses scissors
 
 
 function getComputerChoice () {
-    let x = Math.random();
-    return x; 
+    let compChoice = Math.random();
+
+    if (compChoice <= 0.33){
+        choice = "rock";
+    }
+    
+    else if (compChoice > 0.33 && compChoice < 0.66) {
+        choice = "scissors";
+    }
+    
+    else if (compChoice >= 0.66) {
+        choice = "paper";
+    } 
+    return choice;
 }
 
+function playRound (compChoice, playerChoice) {
+    let x = undefined; 
+    let choice = playerChoice.toLowerCase();
+    
+    if (choice === "scissors") {
+        if (compChoice === "scissors") {
+            x = "Tie";
+        }
+        else if (compChoice === "rock") {
+            x = "Lose";
+        }
+        else {
+            x = "Win";
+        }
+        return x;
+    }
+
+    else if (choice === "paper") {
+        if (compChoice === "scissors") {
+            x = "Lose";
+        }
+        else if (compChoice === "rock") {
+            x = "Win";
+        }
+        else {
+            x = "Tie";
+        }
+        return x;
+    }
+
+    else if (choice === "rock") {
+        if (compChoice === "scissors") {
+            x = "Win";
+        }
+        else if (compChoice === "rock") {
+            x = "Tie";
+        }
+        else {
+            x = "Lose";
+        }
+        return x;
+    }
+
+}
+
+let playerChoice = "rock";
 let compChoice = getComputerChoice();
-
-let choice;
-
-if (compChoice <= 0.33){
-    choice = "Rock";
-}
-
-else if (compChoice > 0.33 && compChoice < 0.66) {
-    choice = "Scissors";
-}
-
-else if (compChoice >= 0.66) {
-    choice ="Paper";
-}
-
 console.log(compChoice);
-console.log(choice);
+
+console.log(playRound(compChoice, playerChoice));
+
