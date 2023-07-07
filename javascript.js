@@ -1,42 +1,13 @@
-/*Javascript*/
-/*Pseudocode
-Ask user to choose either rock, paper, or scissors 
-    User chooses options
-Computer generates random rock, paper, scissors choice
-Comapre user input to computer input 
-If user chooses rock
-    If computer chose rock: Tie 
-    If computer chose paper: computer wins 
-    If computer chose scissors: user wins
-     Record score.   
-If user chooses paper 
-    If computer chose rock: user wins 
-    If computer chose paper: tie
-    If computer chose scissors: computer wins
-     Record score.   
-If user chooses scissors
-    If computer chose rock: Tie 
-    If computer chose paper: computer wins 
-    If computer chose scissors: user wins
-    Record score.   
-*/
-
-
 function getComputerChoice () {
     let compChoice = Math.random();
 
     if (compChoice <= 0.33){
         choice = "rock";
-    }
-    
-    else if (compChoice > 0.33 && compChoice < 0.66) {
+    }else if (compChoice > 0.33 && compChoice < 0.66) {
         choice = "scissors";
-    }
-    
-    else if (compChoice >= 0.66) {
+    }else if (compChoice >= 0.66) {
         choice = "paper";
-    } 
-    return choice;
+    } return choice;
 }
 
 function playRound (compChoice, playerChoice) {
@@ -46,78 +17,59 @@ function playRound (compChoice, playerChoice) {
     if (choice === "scissors") {
         if (compChoice === "scissors") {
             x = "Tie";
-        }
-        else if (compChoice === "rock") {
+        }else if (compChoice === "rock") {
             x = "Lose";
-        }
-        else {
+        }else {
             x = "Win";
-        }
-        return x;
-    }
-
-    else if (choice === "paper") {
+        }return x;
+        
+    }else if (choice === "paper") {
         if (compChoice === "scissors") {
             x = "Lose";
-        }
-        else if (compChoice === "rock") {
+        }else if (compChoice === "rock") {
             x = "Win";
-        }
-        else {
+        }else {
             x = "Tie";
-        }
-        return x;
-    }
-
-    else if (choice === "rock") {
+        }return x;
+        
+    }else if (choice === "rock") {
         if (compChoice === "scissors") {
             x = "Win";
-        }
-        else if (compChoice === "rock") {
+        }else if (compChoice === "rock") {
             x = "Tie";
-        }
-        else {
+        }else {
             x = "Lose";
-        }
-        return x;
-    }
-
-}
-
-function gameResult (result) {
-    if (result === "Win"){
-        alert("You win!");
-    }
-
-    else if (result === "Lose"){
-        alert("You lose!");
-    }
-
-    else if (result ==="Tie"){
-        alert("Tie!");
+        }return x;
     }
 }
 
-function game () {
-    let winCounter = 0;
-    let numberOfGames = 5;
+let compChoice = getComputerChoice();
 
-    for (let i = 0; i < numberOfGames; i++) {
-        let playerChoice = prompt("Rock, Paper, or Scissors?");
-        let compChoice = getComputerChoice();
-        let countgame = playRound(compChoice, playerChoice);
 
-        let result = gameResult(countgame);
-        console.log (result);
+let button1 = document.createElement("button1");
+button1.textContent = "Rock";
+document.appendChild(button1);
 
-        if (countgame === "Win"){
-            winCounter++;
-        }
-    }
-    console.log(winCounter);
-    return winCounter;
-}
+let button2 = document.createElement("button2");
+button2.textContent = "Paper";
+document.appendChild(button2);
 
-let runGame = game();
+let button3 = document.createElement("button3");
+button3.textContent = "Scissors";
+document.appendChild(button3);
 
+button1.addEventListener("click", function(){
+    playerChoice = "Rock";
+    playerRound(compChoice,playerChoice);
+})
+
+button2.addEventListener("click", function(){
+    playerChoice = "Paper";
+    playerRound(compChoice,playerChoice);
+})
+
+button3.addEventListener("click", function(){
+    playerChoice = "Scissors";
+    playerRound(compChoice,playerChoice);
+})
 
