@@ -58,17 +58,17 @@ let button3 = document.createElement("button3");
 button3.textContent = "Scissors";
 document.appendChild(button3);
 
-button1.addEventListener("click", function(){
+button1.addEventListener("click", function(compChoice){
     playerChoice = "Rock";
     playerRound(compChoice,playerChoice);
 })
 
-button2.addEventListener("click", function(){
+button2.addEventListener("click", function(compChoice){
     playerChoice = "Paper";
     playerRound(compChoice,playerChoice);
 })
 
-button3.addEventListener("click", function(){
+button3.addEventListener("click", function(compChoice){
     playerChoice = "Scissors";
     playerRound(compChoice,playerChoice);
 })
