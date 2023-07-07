@@ -44,7 +44,7 @@ function playRound (compChoice, playerChoice) {
 }
 
 let compChoice = getComputerChoice();
-
+let container = document.getElementById("container");
 
 let button1 = document.createElement("button1");
 button1.textContent = "Rock";
@@ -60,16 +60,24 @@ document.appendChild(button3);
 
 button1.addEventListener("click", function(compChoice){
     playerChoice = "Rock";
-    playerRound(compChoice,playerChoice);
+    let round = playerRound(compChoice,playerChoice);
+    let results = document.createElement("div");
+    container.appendChild(results);
+    results.textContent = round;
 })
 
 button2.addEventListener("click", function(compChoice){
     playerChoice = "Paper";
-    playerRound(compChoice,playerChoice);
+    let round = playerRound(compChoice,playerChoice);
+    let results = document.createElement("div");
+    container.appendChild(results);
+    results.textContent = round;
 })
 
 button3.addEventListener("click", function(compChoice){
     playerChoice = "Scissors";
-    playerRound(compChoice,playerChoice);
+    let round = playerRound(compChoice,playerChoice);
+    let results = document.createElement("div");
+    container.appendChild(results);
+    results.textContent = round;
 })
-
