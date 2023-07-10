@@ -22,6 +22,10 @@ function checkWinner (playerCounter,CompCounter){
   }
 }
 
+function score(){
+	return "Player score: " + playerCounter + ", Computer score: " + compCounter;
+}
+
 function playRound(playerChoice) {
   let x;
   let choice = playerChoice.toLowerCase();
@@ -44,6 +48,7 @@ function playRound(playerChoice) {
   return x;
 }
 
+
 let container = document.getElementById("container");
 
 let button1 = document.createElement("button");
@@ -63,7 +68,7 @@ button1.addEventListener("click", function() {
   let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
-  results.textContent = round;
+  results.textContent = score();
 })
 
 button2.addEventListener("click", function() {
@@ -71,7 +76,7 @@ button2.addEventListener("click", function() {
   let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
-  results.textContent = round;
+  results.textContent = score();
 })
 
 button3.addEventListener("click", function() {
@@ -79,5 +84,5 @@ button3.addEventListener("click", function() {
   let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
-  results.textContent = round;
+  results.textContent = score();
 })
