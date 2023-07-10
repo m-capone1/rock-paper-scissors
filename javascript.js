@@ -1,3 +1,6 @@
+let playerCounter = 0;
+let compCounter = 0;
+
 function getComputerChoice() {
   let compChoice = Math.random();
 
@@ -11,53 +14,28 @@ function getComputerChoice() {
   return choice;
 }
 
-function playRound(compChoice, playerChoice) {
+function playRound(playerChoice) {
   let x;
   let choice = playerChoice.toLowerCase();
-
-  if (choice === "scissors") {
-    if (compChoice === "scissors") {
-      x = "Tie";
-    } else if (compChoice === "rock") {
-      x = "Lose";
-    } else {
-      x = "Win";
-    }
-    return x;
-
-  } else if (choice === "paper") {
-    if (compChoice === "scissors") {
-      x = "Lose";
-    } else if (compChoice === "rock") {
-      x = "Win";
-    } else {
-      x = "Tie";
-    }
-    return x;
-
-  } else if (choice === "rock") {
-    if (compChoice === "scissors") {
-      x = "Win";
-    } else if (compChoice === "rock") {
-      x = "Tie";
-    } else {
-      x = "Lose";
-    }
-    return x;
+  let compChoice = getComputerChoice();
+  
+  if (compChoice === playerChoice){
+  	x = "Tie";
+  } 
+  else if (choice === "scissors" && compChoice === "rock" || choice === "rock" && compChoice  === "paper" || choice === "paper" && compChoice === "scissors"){
+  	x = "Lose";
+    compCounter++;
+    console.log("compcounter =" + compCounter);
+  } 
+  else if (choice === "rock" &&  compChoice === "scissors" || choice === "paper" && compChoice === "rock" || choice === "scissors" && compChoice === "paper"){
+  	x = "Win";
+    playerCounter++;
+    console.log("playercounter =" + playerCounter);
   }
+  return x;
 }
 
-function counter(round) {
-  let playerCount = 0;
-  let compCount = 0;
 
-  if (round === "Win") {
-    playerCount++;
-    return playerCount;
-  }
-}
-
-let compChoice = getComputerChoice();
 let container = document.getElementById("container");
 
 let button1 = document.createElement("button");
@@ -72,25 +50,25 @@ let button3 = document.createElement("button");
 button3.textContent = "Scissors";
 container.appendChild(button3);
 
-button1.addEventListener("click", function(compChoice) {
-  playerChoice = "Rock";
-  let round = playRound(compChoice, playerChoice);
+button1.addEventListener("click", function() {
+  playerChoice = "rock";
+  let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
   results.textContent = round;
 })
 
-button2.addEventListener("click", function(compChoice) {
-  playerChoice = "Paper";
-  let round = playRound(compChoice, playerChoice);
+button2.addEventListener("click", function() {
+  playerChoice = "paper";
+  let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
   results.textContent = round;
 })
 
-button3.addEventListener("click", function(compChoice) {
-  playerChoice = "Scissors";
-  let round = playRound(compChoice, playerChoice);
+button3.addEventListener("click", function() {
+  playerChoice = "scissors";
+  let round = playRound(playerChoice);
   let results = document.createElement("div");
   container.appendChild(results);
   results.textContent = round;
