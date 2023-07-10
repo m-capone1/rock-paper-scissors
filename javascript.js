@@ -14,6 +14,14 @@ function getComputerChoice() {
   return choice;
 }
 
+function checkWinner (playerCounter,CompCounter){
+	if (compCounter === 5){
+  	console.log("You lose.");
+  } else if (playerCounter === 5){
+  	console.log("You win!");
+  }
+}
+
 function playRound(playerChoice) {
   let x;
   let choice = playerChoice.toLowerCase();
@@ -32,9 +40,9 @@ function playRound(playerChoice) {
     playerCounter++;
     console.log("playercounter =" + playerCounter);
   }
+  checkWinner (playerCounter, compCounter);
   return x;
 }
-
 
 let container = document.getElementById("container");
 
